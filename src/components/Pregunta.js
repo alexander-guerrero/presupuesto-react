@@ -4,6 +4,7 @@ const Pregunta = () => {
 
   // Definir el state
   const [cantidad, setCantidad] = useState(0);
+  const [error, setError] = useState(false);
 
   // Función que lee el presupuesto
   const definirPresupuesto = e => {
@@ -14,10 +15,14 @@ const Pregunta = () => {
   const agregarPresupuesto = e => {
     e.preventDefault();
 
-    // Validar...
+    // Validar
+    if (cantidad <= 0 || isNaN(cantidad)) {
+      setError(true);
+      return;
+    }
 
-    // Si pasa la validación...
-    
+    // Si pasa la validación
+    setError(false);
   }
 
   return (
