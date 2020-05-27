@@ -8,6 +8,12 @@ function App() {
   const [presupuesto, setPresupuesto] = useState(0);
   const [restante, setRestante] = useState(0);
   const [mostrarPregunta, setMostrarPregunta] = useState(true);
+  const [gastos, setGastos] = useState([]);
+
+  // Guardar los gastos
+  const guardarGastos = gasto => {
+    setGastos([...gastos, gasto]);
+  };
 
   return (
     <div className="container">
@@ -25,7 +31,9 @@ function App() {
             :
             <div className="row">
               <div className="one-half column">
-                <Formulario />
+                <Formulario
+                  guardarGastos={guardarGastos}
+                />
               </div>
               <div className="one-half column">
                 2
