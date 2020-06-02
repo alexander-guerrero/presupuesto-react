@@ -14,7 +14,11 @@ function App() {
 
   // Guardar los gastos
   const guardarGastos = gasto => {
+    // Agrega el gasto al array de gastos
     setGastos([...gastos, gasto]);
+
+    // Actualizar el restante
+    setRestante(restante - gasto.cantidad);
   };
 
   return (
